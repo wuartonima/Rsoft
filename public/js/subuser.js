@@ -32,10 +32,6 @@ $('#arte').on('submit','#myform',function(event){
     var p,po;
     po=$('#nombre').val();
     console.log('valor='+po);
-	$('.requerido').each(function(i, elem){
-		p=$(elem).val();
-        console.log(p);
-		});
 	});
 
 function addInfo(e) {  
