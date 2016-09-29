@@ -44,9 +44,7 @@ server.get('/',function(req,res){
         function(err, doc){
         if(err){
         console.log("Something wrong when updating data!");
-         }else{console.log(usir.local);}
-         
-         
+         }else{console.log(usir.local);}       
          });
         console.log(usir.local.email );
         socket.emit('req_datos',usir);

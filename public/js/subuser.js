@@ -25,6 +25,30 @@ $('#edituser').click(function(){
    $("#arte").load("mains/edituser.html");
    setTimeout(function mdatos(){socket.emit('sol_datos', 'd1');},60);
 });
+
+
+$('#arte').on('submit','#myform',function(event){
+	var error = 0;
+    var p,po;
+    po=$('#nombre').val();
+    console.log('valor='+po);
+	$('.requerido').each(function(i, elem){
+		p=$(elem).val();
+        console.log(p);
+		});
+	});
+
+function addInfo(e) {  
+  
+  //  var nombre = document.getElementById('nombre').value;
+    //var permisos = document.getElementById('permisos').value;
+    Console.log('form resibido');
+  
+};
+
+//$("#arte").on("click", ".blog-test", function(){
+//	$(this).after("<p class=\"blog-test\">Pulsa para probar " + (++bt_count) + "</p>");
+//});
 		
 /////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
