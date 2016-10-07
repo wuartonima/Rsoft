@@ -28,27 +28,34 @@ server.get('/',function(req,res){
         console.log('Un cliente se ha conectado');
 
         socket.emit('messages', 'hola cliente');  ///enviar mensajes al cliente
-
+         
         socket.on('new-message', function(data) {  ///resibir
         io.sockets.emit('messages', 'resivido');
         console.log(data);
-        
+       
 
         });
-
-        socket.on('sol_datos',function(data) {
-          con++;
-
-
-        lser.update({'local.email':'omar@gmail.com'},{$set:{'local.puesto' : '12'+con}},{upsert:true,safe:true},
+        
+        socket.on('new_info',function(data) {
+        lser.update({'local.email':usir.local.email},
+        {$set:{'local.puesto' : data[1],'local.permisos' : data[2],'local.nombre' : data[0]}
+        
+        },{upsert:true,safe:true},
         function(err, doc){
         if(err){
         console.log("Something wrong when updating data!");
          }else{console.log(usir.local);}       
          });
-        console.log(usir.local.email );
-        socket.emit('req_datos',usir);
 
+        });
+
+
+        socket.on('sol_datos',function(data) {
+          con++;
+          socket.emit('req_datos', usir);
+
+       
+        
         }); 
 
 

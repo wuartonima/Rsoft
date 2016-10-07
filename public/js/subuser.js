@@ -23,15 +23,21 @@ socket.on('req_datos', function(data) { ///resibir mensajes del servidor
 
 $('#edituser').click(function(){
    $("#arte").load("mains/edituser.html");
-   setTimeout(function mdatos(){socket.emit('sol_datos', 'd1');},60);
+});
+$('#historialusr').click(function(){
+   $("#arte").load("mains/table.html");
 });
 
 
 $('#arte').on('submit','#myform',function(event){
 	var error = 0;
-    var p,po;
-    po=$('#nombre').val();
-    console.log('valor='+po);
+    var datos=[];
+    datos[0]=$('#nombre').val();
+    datos[1]=$('#puesto').val();
+    datos[2]=$('#permisos').val();  
+    var m=$(":input").serializeArray();
+    //  console.log( document.getElementById("myform") ); 
+    setTimeout(function mdatos(){socket.emit('new_info', datos);},60); 
 	});
 
 function addInfo(e) {  
