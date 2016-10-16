@@ -1,24 +1,65 @@
+  <link href="css/metro.css" rel="stylesheet">
+    
 
-<nav>
-   	<ul>
-    <li><a href="#" class="menu"><strong>Resumen</strong></a> </li>
-    <li><a href="#" class="submenu">Ver resumen</a> </li>
-    <li><a href="#" class="submenu">Cambios</a> </li>
-    <li><a href="#" class="submenu">Monitor</a> </li>
-   	<li><a href="#" class="menu"><strong>Produccion</strong></a> </li>
-   	<li><a href="#" class="submenu">Nueva orden</a> </li>
-    <li><a href="#" class="submenu">Eliminar orden</a> </li>
-   	<li><a href="#" class="menu"><strong>historial</strong></a> </li>
-   	<li><a href="#" class="submenu">Ver historial</a> </li>
-   	<li><a href="#" class="submenu">Borrar historial</a> </li>
-   	<li><a href="#" class="menu"><strong>Reportes</strong> </a> </li>
-   	<li><a href="#" class="submenu">Nuevo reporte</a> </li>
-   	<li><a href="#" class="submenu">Opciones reportes</a> </li>
-   	<li><a href="#" class="menu"><strong>real time</strong></a> </li>
-   	<li><a href="#" class="submenu">Monitor</a> </li>
-   	<li><a href="#" class="submenu">Mensajes</a> </li>
-   	<li><a href="#" class="menu"><strong>user</strong></a> </li>
-   	<li><a href="/logout" class="submenu">Unlogin</a> </li>
-   	</ul>
-   </nav>
+<div class="treeview" data-role="treeview">
+    <ul>
+           <li class="node">
+             <span class="leaf"><img src="imagenes/vel.png" class="icon"><strong> Resumen</strong></span>
+              <span class="node-toggle"></span>
+                   <ul>
+                   <li><span class="leaf">Ver resumen</span></li>
+                   <li><span class="leaf">Cambios</span></li>
+				   <li><span class="leaf">Monitor</span></li>
+                 </ul>
+           </li>
+
+
+           <li class="node">
+             <span class="leaf"><img src="imagenes/produc.png" class="icon"><strong>Produccion</strong></span>
+              <span class="node-toggle"></span>
+                   <ul>
+                   <li><span class="leaf">Nueva orden</span></li>				   
+                   <li><span class="leaf">Eliminar orden</span></li>
+                 </ul>
+           </li>
+
+
+
+           <li class="node">
+             <span class="leaf"><img src="imagenes/his.png" class="icon" height="17" width="17"><strong>Historial</strong></span>
+              <span class="node-toggle"></span>
+                   <ul>
+                   <li><span class="leaf">Ver historial</strong></span></li>				   
+                   <li><span class="leaf">Borrar historial</span></li>
+                 </ul>
+           </li>
+		   <li class="node collapsed">
+             <span class="leaf">Reportes</span>
+              <span class="node-toggle"></span>
+                   <ul>
+                   <li><span class="leaf">Nuevo reporte</span></li>				   
+                   <li><span class="leaf">Opciones reportes</span></li>
+                 </ul>
+           </li>
+		    <li class="node collapsed">
+             <span class="leaf">Real time</span>
+              <span class="node-toggle"></span>
+                   <ul>
+                   <li><span class="leaf">Monitor</span></li>				   
+                   <li><span class="leaf">Mensajes</span></li>
+                 </ul>
+           </li>
+             <li class="node collapsed">
+              <span class="leaf">User</span>
+               <span class="node-toggle"></span>
+                   <ul>
+                   <li><span class="leaf">Unlogin</span></li>				   
+                 </ul>
+           </li>
+
+ 
+        
+    </ul>
+</div> 
+<script src="js/metro.js"></script>
    <script type="text/javascript" src="js/submenus.js"></script>

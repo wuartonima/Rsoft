@@ -17,6 +17,7 @@ var contador = 0;
 	    		$('#produccion').click(function(){
 
 	       		$("#menu").load("asides/produccion.html");
+				$("#arte").load("mains/rem_producccion.html");
 	       		
 	    									 });
 

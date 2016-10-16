@@ -1,14 +1,45 @@
+  <link href="css/metro.css" rel="stylesheet">
+   <script src="js/metro.js"></script>
 
-<nav>
-   	<ul>
-    <li><a href="#" class="menu"><strong>User</strong></a> </li>
-    <li><a href="/logout" class="submenu">Unloogin</a> </li>
-   	<li><a href="#" class="menu"><strong>Usuarios</strong></a> </li>
-   	<li><a href="#" class="submenu" id=perfil >perfil</a> </li>
-    <li><a href="#" class="submenu" id="edituser">Editar usuario</a> </li>
-   	<li><a href="#" class="menu"><strong>historial</strong></a> </li>
-   	<li><a href="#" class="submenu" id=historialusr>Ver historial</a> </li>
-   	<li><a href="#" class="submenu" id=deleteusr>Borrar historial</a> </li>
-   	</ul>
-   </nav>
+<div class="treeview" data-role="treeview">
+    <ul>
+           <li class="node">
+             <span class="leaf"><img src="imagenes/user.png" class="icon"><strong> User</strong></span>
+              <span class="node-toggle"></span>
+                   <ul>
+                   <li><span class="leaf" href="/signup" id="unlogin" >Unlogin</span></li>
+       
+                 </ul>
+           </li>
+
+
+           <li class="node">
+             <span class="leaf"><img src="imagenes/users.png" class="icon"><strong>Usuarios</strong></span>
+              <span class="node-toggle"></span>
+                   <ul>
+                   <li><span class="leaf"  id=perfil>Perfil</span></li>				   
+                   <li><span class="leaf" id="edituser">Editar usuario</span></li>
+                 </ul>
+           </li>
+
+
+
+           <li class="node">
+             <span class="leaf"><img src="imagenes/his.png" class="icon" height="17" width="17"><strong>Historial</strong></span>
+              <span class="node-toggle"></span>
+                   <ul>
+                   <li><span class="leaf" id=historialusr>Ver historial</strong></span></li>				   
+                   <li><span class="leaf" id=deleteusr >Borrar historial</span></li>
+                 </ul>
+           </li>
+        </li>
+    </ul>
+</div> 
+<script>
+
+  $('#unlogin').click(function(){
+        location.href = '/logout';
+  });
+</script>
+
   <script type="text/javascript" src="js/subuser.js"></script>

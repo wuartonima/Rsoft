@@ -6,6 +6,7 @@ var LocalStrategy    = require('passport-local').Strategy;
 
 // load up the user model
 var User       = require('../app/models/user');
+var User2       = require('../app/models/historialusr');
 
 // load the auth variables
 var configAuth = require('./auth'); // use this one for testing

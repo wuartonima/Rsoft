@@ -28,6 +28,17 @@ $('#historialusr').click(function(){
    $("#arte").load("mains/table.html");
 });
 
+$('#deleteusr').click(function(){
+ //  $("#arte").load("mains/table.html");
+if(confirm("Se eliminaran todos los regitros de usuarios, ¿desea continuar?"))
+{
+    alert("bien");
+  setTimeout(function mdatos(){socket.emit('delete_his_user', "i");},60);   
+}
+
+});
+
+
 
 $('#arte').on('submit','#myform',function(event){
 	var error = 0;

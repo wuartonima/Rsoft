@@ -1,37 +1,58 @@
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+		
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+   
   
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="js/datatables.min.js"></script>
+
 
 <script>
 $(document).ready( function () {
-    var data = [
-    [
-        "Tiger Nixon",
-        "$3,120"
-    ],
-    [
-        "Garrett Winters",
-        "$5,300"
+  
+var socket=io();
+setTimeout(function mdatos(){socket.emit('histo', 'd1');},60);
+socket.on('dta_histo', function(data) {
+data =JSON.stringify(data);
+var obj=JSON.parse(data);
+ console.log(obj);
+$('#table_id').DataTable({
+   data: obj,
+    columns: [
+        { data: 'nombre' },
+        { data: 'hora' },
+        { data: 'fecha' }
     ]
-];
-    $('#table_id').DataTable(
-
-    {
-    data: data
-    }
-
-    );
+    
+});
 } );
+
+
+});
+
 </script>
 
-<table id="table_id" class="display">
+</head>
+<body>
+<table id=table_id class="display">
     <thead>
         <tr>
-            <th>nombre</th>
-            <th>fecha</th>
+           <th>Email</th>
+           <th>Fecha</th>
+           <th>Hora</th>
+
         </tr>
     </thead>
     <tbody>
     
     </tbody>
 </table>
+
+</body>
+</html>
+
+
+

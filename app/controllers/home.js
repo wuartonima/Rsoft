@@ -2,15 +2,29 @@
 
 var usir;
 var lser       = require('../models/user');
+var  path = require('path');
 var con=0;
 var homeController=function(server,io){
+ var histo= require('../models/historialusr');
+ var orden= require('../models/ordenes');       
+
+
+var fs =require('fs');
+
 console.log('homeController listo');
+setInterval(function(){
+//var p=path.basename('/home/wuarton/polo3.txt');   
+var content= fs.readFileSync('/home/wuarton/polo1.txt','utf8');    
+//console.log(content); 
+
+      }, 100);
 
 server.get('/',function(req,res){
  
   	res.render('home/login');
 
    });
+
 
 
         server.get('/index',function(req,res){
@@ -35,6 +49,14 @@ server.get('/',function(req,res){
        
 
         });
+
+        socket.on('histo', function(data) {  ///resibir
+        console.log("sol histo");
+        histo.find({},{_id:0,__v:0}, function(err, histo) {
+            console.log(histo);
+            io.sockets.emit('dta_histo',histo);
+        });     
+        });
         
         socket.on('new_info',function(data) {
         lser.update({'local.email':usir.local.email},
@@ -48,15 +70,48 @@ server.get('/',function(req,res){
          });
 
         });
+        socket.on('new_orden',function(data){
+
+            console.log("guardando")
+            var ord = new orden();
+            ord.autor= data[0];
+            ord.orden=data[1];
+            ord.lote=data[2];
+            ord.SKU=data[3];
+            ord.fecha=data[4];
+            ord.hora=data[5];
+
+           
+            ord.save(function(err) {
+               if (err)
+                 console.log(err);
+                  return err;        
+           });
+        });
+        socket.on('edit_orden',function(data){
+
+            
+        });
+        socket.on('delete_orden',function(data){
+
+            
+        });
+
+
 
 
         socket.on('sol_datos',function(data) {
           con++;
-          socket.emit('req_datos', usir);
-
-       
-        
+          socket.emit('req_datos', usir);       
         }); 
+
+        socket.on('delete_his_user',function(data){
+            console.log("borrado");
+            histo.remove({}, function(err, histo) {
+            });
+
+
+        });
 
 
         });
@@ -77,12 +132,31 @@ server.get('/',function(req,res){
         }));
         
 
-        server.get('/home',isLoggedIn,function(req,res){
+        server.get('/home',isLoggedIn,function(req,res){///req de pagina inicial y registo a base de datos de usuario
             usir = req.user;
-            console.log(usir);
+            
 
             res.render('home/index');
+            console.log(new Date().toISOString().substring(12, 19));
+            var his= new histo();
+            his.nombre= usir.local.email;
+            his.hora=new Date().toISOString().substring(0, 10);
+            his.fecha=new Date().toISOString().substring(12, 19);
+            his.save(function(err) {
+               if (err)
+                 console.log(err);
+                  return err;        
+           });
+
+          
+
+
+
+          
         });
+
+
+
         server.get('/testimonio',isLoggedIn,function(req,res){
         usir = req.user;
         });
