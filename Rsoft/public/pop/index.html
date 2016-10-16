@@ -1,0 +1,48 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="login_style.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script>
+$(document).ready(function()
+{
+ $("#show_login").click(function(){
+  showpopup();
+ });
+ $("#close_login").click(function(){
+  hidepopup();
+ });
+});
+
+function showpopup()
+{
+ $("#loginform").fadeIn();
+ $("#loginform").css({"visibility":"visible","display":"block"});
+}
+
+function hidepopup()
+{
+ $("#loginform").fadeOut();
+ $("#loginform").css({"visibility":"hidden","display":"none"});
+}
+
+</script>
+
+</head>
+   
+<body>
+
+<center>
+ <input type="button" id="show_login" value="Show Login">
+ <div id = "loginform">
+  <form method = "post" action = "">
+   <p>Join TalkersCode And get Quick Access To Our Tutorials,Questions,Web Tricks And Many More</p>
+   <input type = "image" id = "close_login" src = "images/close.png">
+   <input type = "text" id = "login" placeholder = "Email Id" name = "uid">
+   <input type = "password" id = "password" name = "upass" placeholder = "***">
+   <input type = "submit" id = "dologin" value = "Login">
+  </form>
+ </div>
+</center>
+
+</body>
+</html>
